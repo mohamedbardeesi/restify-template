@@ -1,0 +1,17 @@
+{
+  "general": {
+	"service": {
+		"name":"001basic"
+	}
+  },
+  "connections": {
+    "http": {
+      "address": "0.0.0.0",
+      "port": 8080 
+    },
+    "sysLog": {
+        "host": "localhost",
+        "port": 514
+    }
+  }
+}
