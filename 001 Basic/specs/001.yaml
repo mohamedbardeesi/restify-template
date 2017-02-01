@@ -1,0 +1,98 @@
+swagger: '2.0'
+schemes:
+  - http
+  - https
+host: localhost
+basePath: /
+info:
+  contact:
+    email: yourapiexpert@gmail.com
+    name: YourAPIExpert.com
+    url: 'http://www.yourapiexpert.com'
+  description: 'YourAPIExpert provides information, tutorials and reviews on all things API and integration.'
+  title: YourAPIExpert
+  version: '1'
+  x-logo:
+    backgroundColor: '#FFFFFF'
+    url: 'http://www.yourapiexpert.com/wp-content/uploads/2017/01/The-Developer-Series-Header.jpg'
+  x-unofficialSpec: true
+externalDocs:
+  description: YourAPIExpert.com Tutorial
+  url: 'http://www.yourapiexpert.com/2017/02/01/tutorial-designing-basic-rest-api/'
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions: {}
+paths:
+  /hello/{name}:
+    get:
+      description: 'Greets the caller in a JSON-friendly way through path parameters.'
+      operationId: Get_Hello
+      tags:
+        - greet
+      parameters:
+        - description: 'The name of the person to greet.'
+          in: path
+          name: name
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/result'
+        '400':
+          description: Error response
+          schema:
+            $ref: '#/definitions/error'
+      security: []
+      summary: Greets caller.
+  /hello:
+    post:
+      description: 'Greets the caller in a JSON-friendly way through HTTP body data.'
+      operationId: Post_Hello
+      tags:
+        - greet
+      parameters:
+        - description: 'The name of the person to greet.'
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/request'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/result'
+        '400':
+          description: Error response
+          schema:
+            $ref: '#/definitions/error'
+      security: []
+      summary: Greets caller.
+definitions:
+  request:
+    properties:
+      hello:
+        type: string
+    type: object
+  result:
+    properties:
+      response:
+        type: string
+    type: object
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int16
+        description: HTTP error code.
+      status:
+        type: string
+        description: HTTP status text.
+      message:
+        type: string
+        description: HTTP error description.

@@ -1,0 +1,65 @@
+{
+	"variables": [],
+	"info": {
+		"name": "001 Basic",
+		"_postman_id": "bc4c7ca5-3aeb-52cd-03cb-83174639d84c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Request Example",
+			"request": {
+				"url": "http://localhost:8080/hello",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"hello\":\"world!\"}"
+				},
+				"description": "Demonstration of POST request"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Request Example",
+			"request": {
+				"url": "http://localhost:8080/hello/world",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"hello\":\"world!\"}"
+				},
+				"description": "Demonstration of GET request"
+			},
+			"response": []
+		},
+		{
+			"name": "BAD Request Example",
+			"request": {
+				"url": "http://localhost:8080/hello",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"hello\":\"world!\"}"
+				},
+				"description": "Demonstration of bad request"
+			},
+			"response": []
+		}
+	]
+}
