@@ -1,0 +1,76 @@
+{
+	"variables": [],
+	"info": {
+		"name": "002 Authentication",
+		"_postman_id": "268b7f71-e53f-202e-a326-1e6d2588627a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/user/login?username=testuser&password=testpassword",
+			"request": {
+				"url": "http://localhost:8080/auth/login?username=testuser&password=testpassword",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"smtp\": {\n      \"address\": {\n         \"from\": \"\\\"Stephen Lombard\\\" <yourapiexpert@gmail.com>\",\n         \"to\" : \"slombard35@gmail.com\",\n         \"subject\": \"Test from MQ2SMTP\"\n      },\n      \"message\": {\n         \"text\": \"Hello this is a test\",\n         \"html\": \"<b>Hello</b> this is a <font color=\\\"red\\\">test</font>\"\n      }\n    }\n  }\n"
+				},
+				"description": "Exchanges access credientials for a JWT token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/login?username=testuser&password=testpasswordl",
+			"request": {
+				"url": "http://localhost:8080/auth/login?username=testuser&password=testpasswordl",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"smtp\": {\n      \"address\": {\n         \"from\": \"\\\"Stephen Lombard\\\" <yourapiexpert@gmail.com>\",\n         \"to\" : \"slombard35@gmail.com\",\n         \"subject\": \"Test from MQ2SMTP\"\n      },\n      \"message\": {\n         \"text\": \"Hello this is a test\",\n         \"html\": \"<b>Hello</b> this is a <font color=\\\"red\\\">test</font>\"\n      }\n    }\n  }\n"
+				},
+				"description": "Demonstrates the handling of an incorrect password."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/profile",
+			"request": {
+				"url": "http://localhost:8080/user/profile",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiJ0ZXN0cGFzc3dvcmQiLCJvdGhlclRleHQiOiJUaGlzIGlzIGEgdGVzdCBtZXNzYWdlIiwiaWF0IjoxNDg3NDg5MzMyLCJleHAiOjE0ODc0OTA1MzIsImF1ZCI6Imh0dHA6Ly93d3cueW91cmFwaWV4cGVydC5jb20iLCJpc3MiOiJodHRwOi8vd3d3LnlvdXJhcGlleHBlcnQuY29tIiwic3ViIjoidGVzdHVzZXIifQ.0Fmt9ofVtEpfb7rPunyi1SLrU3J5bHixmFXiDgvemjQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"smtp\": {\n      \"address\": {\n         \"from\": \"\\\"Stephen Lombard\\\" <yourapiexpert@gmail.com>\",\n         \"to\" : \"slombard35@gmail.com\",\n         \"subject\": \"Test from MQ2SMTP\"\n      },\n      \"message\": {\n         \"text\": \"Hello this is a test\",\n         \"html\": \"<b>Hello</b> this is a <font color=\\\"red\\\">test</font>\"\n      }\n    }\n  }\n"
+				},
+				"description": "Demonstration of sending JWT token in header"
+			},
+			"response": []
+		}
+	]
+}

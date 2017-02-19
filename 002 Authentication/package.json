@@ -1,0 +1,22 @@
+{
+  "name": "002",
+  "version": "1.0.0",
+  "description": "YourAPIExpert.com Restify JWT Authentication Template",
+  "main": "server.js",
+  "dependencies": {
+    "bunyan": "^1.8.5",
+    "bunyan-syslog": "github:mcavage/node-bunyan-syslog",
+    "config": "^1.24.0",
+    "jsonwebtoken": "^7.2.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YourAPIExpert <yourapiexpert@gmail.com>",
+  "license": "ISC"
+}

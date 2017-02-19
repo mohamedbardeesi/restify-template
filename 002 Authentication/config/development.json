@@ -1,0 +1,21 @@
+{
+  "general": {
+	"service": {
+		"name":"002auth"
+	}
+  },
+  "connections": {
+    "http": {
+      "address": "0.0.0.0",
+      "port": 8085 
+    },
+    "sysLog": {
+        "host": "localhost",
+        "port": 514
+    }
+  },
+  "jwt": {
+    "secretKey":"|}9yY),]Wtv^H=##Nor#{\/!g%;@}=r",
+    "tokenValidity": "1200"
+  }
+}

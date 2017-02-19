@@ -1,0 +1,139 @@
+swagger: '2.0'
+schemes:
+  - http
+  - https
+host: localhost:8080
+basePath: /
+info:
+  contact:
+    email: yourapiexpert@gmail.com
+    name: YourAPIExpert.com
+    url: 'http://www.yourapiexpert.com'
+  description: |
+    YourAPIExpert provides information, tutorials and reviews on all things API and integration.
+    
+    In this tutorial we will look at implementing a token-based authentication scheme using JSON Web Tokens (JWT)
+    
+  title: YourAPIExpert
+  version: '1'
+  x-logo:
+    backgroundColor: '#FFFFFF'
+    url: 'http://www.yourapiexpert.com/wp-content/uploads/2017/01/The-Developer-Series-Header.jpg'
+  x-unofficialSpec: true
+externalDocs:
+  description: YourAPIExpert.com Tutorial
+  url: 'http://www.yourapiexpert.com/2017/02/10/tutorial-securing-api-endpoints/'
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  JWT:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /user/login:
+    get:
+      description: 'Exchanges credentials for a JWT access token.'
+      operationId: Post_Login
+      tags:
+        - authorize
+      parameters:
+        - description: 'The username of the person requiring access.'
+          in: query
+          name: username
+          type: string
+          required: true
+        - description: 'The password of the person requiring access.'
+          in: query
+          type: string
+          name: password
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/jwtResponse'
+        '400':
+          description: Error response
+          schema:
+            $ref: '#/definitions/error'
+      security: []
+      summary: Exchanges user credentials for access token.
+  /user/profile:
+    get:
+      security:
+        - JWT: []
+      description: 'Verifies a JWT and returns the token contents.'
+      operationId: Get_Profile
+      tags:
+        - profile
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/jwtProfile'
+        '400':
+          description: Error response
+          schema:
+            $ref: '#/definitions/error'
+      summary: Verifies JSON Web Token.
+definitions:
+  jwtResponse:
+    properties:
+      success:
+        properties:
+          code:
+            type: integer
+            format: int16
+            description: HTTP status code
+          status:
+            type: string
+            description: HTTP status text
+          message:
+            type: string
+            description: HTTP status message
+        type: object
+      access_token:
+        type: string
+        description: JWT access token
+      expires_in:
+        type: string
+        description: Token validity in seconds
+      refresh_token:
+        type: string
+        description: Token to exchange for new access token
+    type: object
+  jwtProfile:
+    properties:
+      success:
+        properties:
+          code:
+            type: integer
+            format: int16
+            description: HTTP status code
+          status:
+            type: string
+            description: HTTP status text
+          message:
+            type: string
+            description: HTTP status message
+        type: object
+      jwt:
+        type: object
+        description: JWT token contents
+    type: object
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int16
+        description: HTTP error code.
+      status:
+        type: string
+        description: HTTP status text.
+      message:
+        type: string
+        description: HTTP error description.
