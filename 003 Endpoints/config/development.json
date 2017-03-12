@@ -40,7 +40,7 @@
         }
     },
     "defaults": {
-       "migrate": "create"
+       "migrate": "safe"
     }
   }
 }
