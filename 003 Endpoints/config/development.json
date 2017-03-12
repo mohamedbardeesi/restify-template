@@ -1,0 +1,46 @@
+{
+  "general": {
+	"service": {
+		"name":"003endpoint"
+	}
+  },
+  "connections": {
+    "http": {
+      "address": "0.0.0.0",
+      "port": 8085 
+    },
+    "sysLog": {
+        "host": "localhost",
+        "port": 514
+    },
+    "mysql": {
+        "host":"localhost",
+        "port": 3306,
+        "database":"demo",
+        "username":"demo_dba",
+        "password":"CbM5L4nkkVa8LKLp"
+    }
+  },
+  "jwt": {
+    "secretKey":"|}9yY),]Wtv^H=##Nor#{\/!g%;@}=r",
+    "tokenValidity": "1200"
+  },
+  "orm": {
+     "middleware": [{
+        "mysql":"mysqlAdapter"
+     }],
+     "connections": {
+        "myLocalMySql": {
+           "adapter": "mysql",
+           "host": "localhost",
+           "port": 3306,
+           "database":"demo",
+           "user":"demo_dba",
+           "password":"CbM5L4nkkVa8LKLp"
+        }
+    },
+    "defaults": {
+       "migrate": "create"
+    }
+  }
+}
