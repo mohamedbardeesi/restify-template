@@ -1,0 +1,32 @@
+{
+  "name": "004",
+  "version": "1.0.0",
+  "description": "YourAPIExpert.com RealTime Template",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^2.1.5",
+    "bunyan": "^1.8.5",
+    "bunyan-syslog": "github:mcavage/node-bunyan-syslog",
+    "config": "^1.24.0",
+    "fs-extra": "^2.1.2",
+    "jsonwebtoken": "^7.2.1",
+    "maxmind": "^2.2.0",
+    "node-django-hashers": "^1.0.9",
+    "nslookup": "^1.1.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "restify": "^4.3.0",
+    "sails-mysql": "balderdashy/sails-mysql#0.12.x",
+    "socket.io": "^1.7.3",
+    "waterline": "balderdashy/waterline#0.12.x",
+    "waveform-node": "yourapiexpert/waveform-node",
+    "whois-api": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YourAPIExpert <yourapiexpert@gmail.com>",
+  "license": "ISC"
+}
