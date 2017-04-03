@@ -1,0 +1,28 @@
+{
+  "general": {
+	"service": {
+		"name":"005chatbot"
+	}
+  },
+  "connections": {
+    "http": {
+      "address": "0.0.0.0",
+      "port": 8085 
+    },
+    "facebook": {
+      "verifyToken": "<your_custom_token_here>",
+      "accessToken": "<facebook_generated_page_token_here>"
+    },
+    "openweathermap": {
+      "apiKey": "<api_key_here>",
+      "url": "http://api.openweathermap.org/data/2.5/weather"
+    },
+    "wordpress": {
+      "url": "https://torrentfreak.com/wp-json"
+    },
+    "sysLog": {
+        "host": "localhost",
+        "port": 514
+    }
+  }
+}
